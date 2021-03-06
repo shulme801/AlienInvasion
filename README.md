@@ -10,3 +10,6 @@ If any alien hits the player's ship or reaches the bottom of the screen, the pla
 
 [Readme text adapted from _Python Crash Course,_ p. 228]
 
+## License Information
+
+The software and sample data in this repository is licensed under GNU General Public License v3.0. See license.md in this repository. No closed-source or commercial use is allowed.

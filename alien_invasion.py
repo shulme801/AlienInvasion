@@ -31,7 +31,6 @@ class AlienInvasion:
             # Watch for keyboard and mouse events.
             self._check_events()
             self.ship.update()
-            print("called ship.update, now redrawing screen")
             # Redraw the screen during each pass through the loop
             self._update_screen()
 

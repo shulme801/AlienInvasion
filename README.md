@@ -27,6 +27,7 @@ If any alien hits the player's ship or reaches the bottom of the screen, the pla
   loop, I call the Clock object's "tick()" method to force a slight pause, if needed.
 * I'm now using PyCharm (the paid version) under JetBrains' 30 day trial to see whether I prefer it.
 
+
 ## License Information
 
 The software and sample data in this repository is licensed under GNU General Public License v3.0. See license.md in this repository. No closed-source or commercial use is allowed.

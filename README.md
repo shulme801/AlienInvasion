@@ -15,10 +15,16 @@ If any alien hits the player's ship or reaches the bottom of the screen, the pla
 ## Tweaks and Tips (in no particular order)
 
 * I originally used VS Code on my Mac as an IDE for python.  When I first began this project I received some mysterious errors from pylint, to tell me that "Module pygame has no 'init' member.  Yet, my code ran with no errors.
-  * It turns out that this behavior is a security measure designed to alert you to the loading of C extensions that aren't part of the python stdlib (see [Stack Overflow](https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)).
+    * It turns out that this behavior is a security measure designed to alert you to the loading of C extensions that aren't part of the python stdlib (see [Stack Overflow](https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)).
   * The fix suggested in Stack Overflow is this: **white-list the python extension** (e.g. 'pygame') in the python settings.json file that VS Code uses.
     * From the Mac menu, click on File->Preferences->Settings, and scroll down to Python. Once there, pick any of the json links. Edit the json file.
 * I've added a couple free spaceship images from webstockreview.net.
+* Frames Per Second setting.
+  My development system is an MBP 2019 version, with a 2.4 gHz I5 processor.  When the alien fleet was repositioned, the redrawing of the games window was frequently quite choppy.
+  The computer's processor is fast enough that it redrew the screen too quickly.
+  I fixed this by adding an fpsClock instance attribute to my AlienInvasion class, setting it to pygame.time.Clock() in the __init__. 
+  I also added a frames per second ("fps") to the Settings class.  Now, immediately after updating the display at the end of the game
+  loop, I call the Clock object's "tick()" method to force a slight pause, if needed.
 * I'm now using PyCharm (the paid version) under JetBrains' 30 day trial to see whether I prefer it.
 
 ## License Information

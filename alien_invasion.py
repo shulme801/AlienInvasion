@@ -64,6 +64,9 @@ class AlienInvasion:
         self.aliens.empty()
         self.bullets.empty()
 
+        # Reset the game settings to their initial values.
+        self.settings.initialize_dynamic_settings()
+
         # Create a new fleet and center the ship.
         self._create_fleet()
         self.ship.center_ship()
@@ -133,7 +136,7 @@ class AlienInvasion:
         """ Start a new game when the player clicks 'Play'."""
         
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if ((button_clicked) and (not self.stats.game_active):
+        if ((button_clicked) and (not self.stats.game_active)):
             self._start_game()    
             # Hide the mouse cursor.
             pygame.mouse.set_visible(False)
@@ -202,6 +205,7 @@ class AlienInvasion:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
 
     def _update_aliens(self):

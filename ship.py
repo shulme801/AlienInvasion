@@ -2,20 +2,27 @@
 """
 
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
-    """ A class to manage the ship
-    """
+class Ship(Sprite):
+    """ A class to manage the ship."""
+
     def __init__(self, ai_game):
-        """ Initialize the ship and set its starting position
-        """
+        """ Initialize the ship and set its starting position."""
+
+        # Make sure that ship inherits everything from Sprite by calling 
+        #  Sprite's init.
+        super().__init__()
+
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
         # load the ship image and get its rect.
-        self.image   = pygame.image.load('images/falcon-ship3.bmp')
+        self.image   = pygame.image.load('images/ship.bmp')
         self.rect    = self.image.get_rect()
+        # load a small scorekeeping image of the ship
+        self.small_ship = pygame.image.load('images/falcon-ship_tiny.bmp')
         # start each new ship at the bottom center of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
 

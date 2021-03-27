@@ -16,6 +16,7 @@ from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+from sbship import SBship
 
 
 class AlienInvasion:
@@ -33,9 +34,6 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
 
-        # self.screen = pygame.display.set_mode( (0,0), pygame.FULLSCREEN)
-        # self.settings.screen_width  = self.screen.get_rect().width
-        # self.settings.screen_height = self.screen.get_rect().height
         # Set the screen's caption
         pygame.display.set_caption("Alien Invasion")
 
@@ -44,6 +42,7 @@ class AlienInvasion:
         self.sb = Scoreboard(self)
 
         self.ship = Ship(self)
+        self.sb_ship = SBship(self)
 
         # Create the bullets
         self.bullets = pygame.sprite.Group()

@@ -2,6 +2,7 @@ import pygame.font
 from pygame.sprite import Group
 
 from ship import Ship
+from sbship import SBship
 
 class Scoreboard:
     """ A class to report scoring information."""
@@ -65,20 +66,13 @@ class Scoreboard:
     def prep_ships(self):
         """ Show how many ships are left."""
 
-        self.ships = Group()
+        self.sb_ships = Group()
         for ship_number in range(self.stats.ships_left):
-            """print("Ship #{0}".format(str(ship_number)))
-            ship = Ship(self.ai_game)
-            ship.rect.x = 10 + ship_number * ship.rect.width
-            ship.rect.y = 10
-            print("x={0}; y={1}".format(str(ship.rect.x), str(ship.rect.h)))
-            self.ships.add(ship)"""
-            small_ship = Ship(self.ai_game)
-            small_ship.rect.x = 10 + ship_number * small_ship.rect.width
-            small_ship.rect.y = 10
-            print("Ship #{0}".format(str(ship_number)))
-            print("x={0}; y={1}".format(str(small_ship.rect.x), str(small_ship.rect.h)))
-            self.ships.add(small_ship)
+            sb_ship = SBship(self.ai_game)
+            sb_ship.rect.x = 10 + ship_number * sb_ship.rect.width
+            sb_ship.rect.y = 10
+    
+            self.sb_ships.add(sb_ship)
 
     def check_high_score(self):
         """ Check to see whether there's a new high score ."""
@@ -93,4 +87,4 @@ class Scoreboard:
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
-        self.ships.draw(self.screen)
+        self.sb_ships.draw(self.screen)

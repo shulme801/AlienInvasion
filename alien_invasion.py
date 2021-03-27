@@ -196,7 +196,7 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-
+        # See if any of the bullets fired have hit an
         self._check_bullet_alien_collisions()
 
     def _check_bullet_alien_collisions(self):
@@ -214,15 +214,21 @@ class AlienInvasion:
             self.sb.check_high_score()
 
         if not self.aliens:
-            # Destroy existing bullets and create new fleet.
-            self.bullets.empty()
-            self._create_fleet()
-            self.settings.increase_speed()
+            # We need to clean up this level and start a new one.
+            self._start_new_level()
 
-            # Increase the level.
-            self.stats.level += 1
-            self.sb.prep_level()
+    def _start_new_level(self):
+        """ Destroys the existing bullets, creates a new fleet and increments the 
+             current game level.
+        """
 
+        self.bullets.empty()
+        self._create_fleet()
+        self.settings.increase_speed()
+
+        # Increase the level.
+        self.stats.level += 1
+        self.sb.prep_level()
 
     def _update_aliens(self):
         """ Check whether fleet is at an edge,

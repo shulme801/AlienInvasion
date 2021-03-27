@@ -247,7 +247,6 @@ class AlienInvasion:
 
         if self.stats.ships_left >= 0:
             # Decrement ships_left and update scoreboard.
-            self.stats.ships_left -= 1
             self.sb.prep_ships()
             
             # Get rid of any remaining aliens and bullets.
@@ -259,6 +258,10 @@ class AlienInvasion:
             # and re-use it up to the value of ship_limit.
             self._create_fleet()
             self.ship.center_ship()
+
+             # Increase the level.
+            self.stats.level += 1
+            self.sb.prep_level()
 
             # Pause.
             sleep(0.5)

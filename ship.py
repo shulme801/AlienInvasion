@@ -19,10 +19,9 @@ class Ship(Sprite):
         self.screen_rect = ai_game.screen.get_rect()
 
         # load the ship image and get its rect.
-        self.image   = pygame.image.load('images/ship.bmp')
+        self.image   = pygame.image.load('images/falcon-ship4.bmp')
         self.rect    = self.image.get_rect()
-        # load a small scorekeeping image of the ship
-        self.small_ship = pygame.image.load('images/falcon-ship_tiny.bmp')
+        
         # start each new ship at the bottom center of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
 

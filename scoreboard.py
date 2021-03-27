@@ -67,12 +67,18 @@ class Scoreboard:
 
         self.ships = Group()
         for ship_number in range(self.stats.ships_left):
-            print("Ship #{0}".format(str(ship_number)))
+            """print("Ship #{0}".format(str(ship_number)))
             ship = Ship(self.ai_game)
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             print("x={0}; y={1}".format(str(ship.rect.x), str(ship.rect.h)))
-            self.ships.add(ship)
+            self.ships.add(ship)"""
+            small_ship = Ship(self.ai_game)
+            small_ship.rect.x = 10 + ship_number * small_ship.rect.width
+            small_ship.rect.y = 10
+            print("Ship #{0}".format(str(ship_number)))
+            print("x={0}; y={1}".format(str(small_ship.rect.x), str(small_ship.rect.h)))
+            self.ships.add(small_ship)
 
     def check_high_score(self):
         """ Check to see whether there's a new high score ."""

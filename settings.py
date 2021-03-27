@@ -4,12 +4,12 @@ class Settings:
     def __init__(self):
         """ Initialize the game's static settings."""
         # Screen settings
-        self.screen_width    = 1400 #pixels
-        self.screen_height   = 1000
+        self.screen_width    = 1200 #pixels
+        self.screen_height   = 800
         self.bg_color        = (230, 230, 230)
 
         # Ship settings
-        self.ship_limit      = 3
+        self.ship_limit      = 2 # "2" = 3 ships allowed.
 
         # Bullet settings
         self.bullet_width    = 3
@@ -18,13 +18,13 @@ class Settings:
         self.bullets_allowed = 7
 
         # Alien settings
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 20
 
         # Display settings
         self.fps = 30    
 
         # How quickly the game speeds up.
-        self.speedup_scale = 1.5
+        self.speedup_scale = 2.5
 
         # How quickly the alien point values increase
         self.score_scale = 1.5

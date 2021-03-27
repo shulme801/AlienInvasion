@@ -26,7 +26,7 @@ My version of the game implements Mr. Matthes' suggested extension (p. 301) to a
   * This limitation of a single ship image constrains the size of the ship image used for combat.  The combat ship image can be no larger than that which can be displayed multiple times in the scoreboard.
   * When I changed the combat ship image to the Falcon ship, I found that it was too big to display in the scoreboard.  
   * Rather than reduce the size of my combat ship, I built a new class -- SBships -- that contained a miniature image of the Falcon space ship.  I use SBships to represent the number of ships remaining.
-  * Since the Scoreboard ship images fulfill a completely different function than the combat ship, I thought this was a very logical change to make.
+  * Moreover, the Scoreboard ship fulfills a completely different function than the combat ship. It makes sense to manage it in a separate class.
 * Frames Per Second setting.
   * My development system is an MBP 2019 version, with a 2.4 gHz I5 processor.  When the alien fleet was repositioned, the redrawing of the games window was frequently quite choppy. The computer's processor is fast enough that it redrew the screen too quickly.
   * I fixed this by adding an fpsClock instance attribute to my AlienInvasion class, setting it to pygame.time.Clock() in the init method.

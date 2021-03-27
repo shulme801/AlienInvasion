@@ -21,8 +21,12 @@ My version of the game implements Mr. Matthes' suggested extension (p. 301) to a
   * It turns out that this behavior is a security measure designed to alert you to the loading of C extensions that aren't part of the python stdlib (see [Stack Overflow](https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)).
   * The fix suggested in Stack Overflow is this: **white-list the python extension** (e.g. 'pygame') in the python settings.json file that VS Code uses.
     * From the Mac menu, click on File->Preferences->Settings, and scroll down to Python. Once there, pick any of the json links. Edit the json file.
-* I've added more detailed free spaceship images from webstockreview.net.
-* The scoreboard in the "standard" AlienInvasion uses the image loaded into the "Ship" class to display the number of ships remaining.  This limitation constrains the size of the ship image to that which can be displayed multiple times in the scoreboard.  When I changed the ship image to the "Falcon" ship, I found that it was too big to display in the scoreboard.  Rather than reduce the size of my ship, I built a new class -- SBships -- that contained a miniature image of the Falcon space ship.  I use SBships to represent the number of ships remaining.
+* I didn't like the size and shape of the standard "Ship" image.  It was too small, I felt, and lacked detail and "realism".  So I've used a more detailed free spaceship image from webstockreview.net.  This is the "Falcon" space ship.
+* As designed, the "standard" AlienInvasion uses one ship image -- the one loaded into the "Ship" class on startup.  This same image becomes the player's spaceship for fighting aliens (the "combat" ship).  The combat ship image is also desplayed on the upper left hand side of the scoreboard to track the number of unused ships remaining.  
+  * This limitation constrains the size of the ship image used for combat.  The combat ship image can be no larger than that which can be displayed multiple times in the scoreboard.
+  * When I changed the combat ship image to the Falcon ship, I found that it was too big to display in the scoreboard.  
+  * Rather than reduce the size of my combat ship, I built a new class -- SBships -- that contained a miniature image of the Falcon space ship.  I use SBships to represent the number of ships remaining.
+  * Since the Scoreboard ship images fulfill a completely different function than the combat ship, I thought this was a very logical change to make.
 * Frames Per Second setting.
   * My development system is an MBP 2019 version, with a 2.4 gHz I5 processor.  When the alien fleet was repositioned, the redrawing of the games window was frequently quite choppy. The computer's processor is fast enough that it redrew the screen too quickly.
   * I fixed this by adding an fpsClock instance attribute to my AlienInvasion class, setting it to pygame.time.Clock() in the init method.

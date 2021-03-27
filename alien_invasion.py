@@ -61,6 +61,7 @@ class AlienInvasion:
         # Reset the game statistics.
         self.stats.reset_stats()
         self.stats.game_active = True
+        self.sb.prep_images()
         self.sb.prep_score()
         self.sb.prep_high_score()
         self.sb.prep_level()
@@ -129,6 +130,7 @@ class AlienInvasion:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                self.stats.update_high_score()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
@@ -162,6 +164,7 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif event.key == pygame.K_q: # Stop the game.
+            self.stats.update_high_score()
             sys.exit()
         elif ((event.key == pygame.K_p) and (not self.stats.game_active)): # Start the game.
             self._start_game()    
